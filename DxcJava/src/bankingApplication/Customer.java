@@ -1,120 +1,88 @@
 package bankingApplication;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
-// Putting Extra Comment for Demonstration of Git Commit and Push
-// This is My Customer Banking Class
-class MyBankClass <T> { // T -> ICICI / HDFC / AXIS
-	T obj;
-	
-	void create(T obj) { // T-> ICICI / HDFC / AXIS
-		this.obj = obj;
-	}
-	
-	T getInstance() { // T -> ICICI / HDFC / AXIS
-		return obj;
-	}
-}
-
 public class Customer 
 {
+	int operationCounter, OpenAccountCounter, DepositCounter, WithdrawlCounter, OpenFDCounter;
+	String name,email,phone,balance, bankType;
 
-	InputStreamReader isr = null;
-	BufferedReader buff = null;
-	ICICI mICICI = null;
-	HDFC mHDFC = null;
-	AXIS mAxis = null;
-	
-	public static void main(String[] args) throws Exception {
-		
-		Customer mObject = new Customer();
-		
-		mObject.isr = new InputStreamReader(System.in);
-		mObject.buff = new BufferedReader(mObject.isr);
-		
-		System.out.println("Welcome to INDIAN BANKING SYSTEM\n");
-		System.out.println("SELECT  YOUR BANK\n1. ICICI\n2. HDFC\n3. AXIS");
-		String mBankChoice = mObject.buff.readLine();
-		
-		String mOperationChoice, continueChoice;
-		boolean transaction = true;
-		
-		switch(Integer.parseInt(mBankChoice))
-		{
-		case 1: MyBankClass<ICICI> obj = new MyBankClass<ICICI>();
-				obj.create(new ICICI());
-				mObject.mICICI = obj.getInstance();
-				do {
-					System.out.println("SELECT  YOUR  Operation\n1. Open Account\n2. Deposit\n3. WithDrawl\n4. Open FD");
-					mOperationChoice = mObject.buff.readLine();
-					switch(Integer.parseInt(mOperationChoice)) {
-					case 1: mObject.mICICI.openAccount(mObject.buff);
-							break;
-					case 2: mObject.mICICI.deposit(mObject.buff);
-							break;
-					case 3: mObject.mICICI.withdrawl(mObject.buff);
-							break;
-					case 4: mObject.mICICI.openFD(mObject.buff);
-							break;
-					default: System.out.println("No Operation Choice Selected");
-					}
-					System.out.println("Do you Want to Continue\nYes\nNo");
-					continueChoice = mObject.buff.readLine();
-					if(continueChoice.equalsIgnoreCase("No"))
-						transaction = false;
-				}while(transaction);
-				break;
-		
-		case 2: MyBankClass<HDFC> obj1 = new MyBankClass<HDFC>();
-				obj1.create(new HDFC());
-				mObject.mHDFC = obj1.getInstance();
-				do {
-					System.out.println("SELECT  YOUR  Operation\n1. Open Account\n2. Deposit\n3. WithDrawl\n4. Open FD");
-					mOperationChoice = mObject.buff.readLine();
-					switch(Integer.parseInt(mOperationChoice)) {
-					case 1: mObject.mHDFC.openAccount(mObject.buff);
-							break;
-					case 2: mObject.mHDFC.deposit(mObject.buff);
-							break;
-					case 3: mObject.mHDFC.withdrawl(mObject.buff);
-							break;
-					case 4:  mObject.mHDFC.openFD(mObject.buff);
-							break;
-					default: System.out.println("No Operation Choice Selected");
-					}
-					System.out.println("Do you Want to Continue\nYes\nNo");
-					continueChoice = mObject.buff.readLine();
-					if(continueChoice.equalsIgnoreCase("No"))
-						transaction = false;
-				}while(transaction);
-				break;
-		
-		case 3: MyBankClass<AXIS> obj2 = new MyBankClass<AXIS>();
-				obj2.create(new AXIS());
-				mObject.mAxis = obj2.getInstance();
-				do {
-					System.out.println("SELECT  YOUR  Operation\n1. Open Account\n2. Deposit\n3. WithDrawl\n4. Open FD");
-					mOperationChoice = mObject.buff.readLine();
-					switch(Integer.parseInt(mOperationChoice)) {
-					case 1: mObject.mAxis.openAccount(mObject.buff);
-							break;
-					case 2: mObject.mAxis.deposit(mObject.buff);
-							break;
-					case 3: mObject.mAxis.withdrawl(mObject.buff);
-							break;
-					case 4:  mObject.mAxis.openFD(mObject.buff);
-							break;
-					default: System.out.println("No Operation Choice Selected");
-					}
-					System.out.println("Do you Want to Continue\nYes\nNo");
-					continueChoice = mObject.buff.readLine();
-					if(continueChoice.equalsIgnoreCase("No"))
-						transaction = false;
-				}while(transaction);
-				break;
-		
-		default: System.out.println("No Choice of Bank Done");
-		}
-	}	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getBalance() {
+		return balance;
+	}
+
+	public void setBalance(String balance) {
+		this.balance = balance;
+	}
+
+	public int getOperationCounter() {
+		return operationCounter;
+	}
+
+	public void setOperationCounter(int operationCounter) {
+		this.operationCounter = operationCounter;
+	}
+
+	public int getOpenAccountCounter() {
+		return OpenAccountCounter;
+	}
+
+	public void setOpenAccountCounter(int openAccountCounter) {
+		OpenAccountCounter = openAccountCounter;
+	}
+
+	public int getDepositCounter() {
+		return DepositCounter;
+	}
+
+	public void setDepositCounter(int depositCounter) {
+		DepositCounter = depositCounter;
+	}
+
+	public int getWithdrawlCounter() {
+		return WithdrawlCounter;
+	}
+
+	public void setWithdrawlCounter(int withdrawlCounter) {
+		WithdrawlCounter = withdrawlCounter;
+	}
+
+	public int getOpenFDCounter() {
+		return OpenFDCounter;
+	}
+
+	public void setOpenFDCounter(int openFDCounter) {
+		OpenFDCounter = openFDCounter;
+	}
+
+	public String getBankType() {
+		return bankType;
+	}
+
+	public void setBankType(String bankType) {
+		this.bankType = bankType;
+	}
 }
+
